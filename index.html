@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MedScan_for_patient_care</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="search"><input id="searchInput" placeholder="Search medicine (Udapa Gold)"><button class="btn" id="searchBtn">Search</button></div>
+    <div class="lang"><button id="btn-en" class="active">EN</button><button id="btn-hi">HI</button><button id="btn-mr">MR</button></div>
+  </div>
+
+  <div class="med-box">
+    <img id="medImage" class="med-img" src="" alt="Medicine image" style="display:none">
+    <div class="meta">
+      <h1 id="medName">Udapa Gold</h1>
+      <div class="small" id="medApi">Dapagliflozin + Metformin</div>
+      <div class="small" id="medContents">Dapagliflozin 10 mg + Metformin 500 mg</div>
+      <div class="input-file">
+        <input id="imgUpload" type="file" accept="image/*">
+        <button class="btn" id="clearImgBtn">Remove image</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section"><h2 id="usesTitle">Uses</h2><p id="usesText"></p></div>
+  <div class="section"><h2 id="howTitle">How to Take</h2><p id="howText"></p></div>
+  <div class="section"><h2 id="sideTitle">Side Effects</h2><p id="sideText"></p></div>
+  <div class="section"><h2 id="precTitle">Precautions</h2><p id="precText"></p></div>
+
+  <div class="section">
+    <h2 id="expiryTitle">Expiry Alert</h2>
+    <div class="expiry-row">
+      <input type="date" id="expiryInput">
+      <button class="btn" id="saveExpiryBtn">Save Expiry</button>
+      <div class="small">Expires on <span id="expiryDate">--</span> (<span id="expiryDays">--</span> days left)</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 id="reminderTitle">Set Dose Reminder</h2>
+    <div class="reminder-controls">
+      <input type="time" id="reminderTime">
+      <button class="btn" id="addReminderBtn">Add Reminder</button>
+      <button class="btn" id="permissionBtn">Enable notifications</button>
+    </div>
+    <ul id="reminderList" class="list-reminders"></ul>
+    <div id="missedContainer" class="small" style="display:none">⚠️ Missed Dose</div>
+  </div>
+
+  <div class="section"><h2 id="tipsTitle">Health Tips</h2><p id="tipsText"></p></div>
+
+  <div class="footer">💙 Get well soon!</div>
+</div>
+
+<!-- alarm modal -->
+<div id="alarmModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);align-items:center;justify-content:center">
+  <div style="background:#fff;padding:16px;border-radius:10px;max-width:420px;margin:40px auto">
+    <h3 id="alarmTitle">⏰ Medicine Reminder</h3>
+    <p id="alarmBody">Time to take your medicine</p>
+    <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" id="alarmOk">OK</button></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
